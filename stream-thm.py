@@ -15,8 +15,8 @@ def add_custom_css():
             background-color: #e0e5ec;
             padding: 20px;
             border-radius: 26px;
-           background: linear-gradient(145deg, #33393b, #3d4346);
-           box-shadow:  10px 10px 7px #17191a,-10px -10px 7px #5b6568;
+            background: linear-gradient(145deg, #33393b, #3d4346);
+            box-shadow:  10px 10px 7px #17191a,-10px -10px 7px #5b6568;
         }
         .title {
             text-align: center;
@@ -45,6 +45,9 @@ def add_custom_css():
             margin-top: 10px;
             border-radius: 26px;
             box-shadow: -5px 5px 4px #094e00, 5px -5px 4px #25ff00;
+        }
+        .output {
+            color: #ffffff;
         }
         </style>
         """,
@@ -104,11 +107,10 @@ if st.button("Fetch Completed Rooms"):
             if completed_rooms:
                 st.markdown(f"<div class='styled-box'><strong>Completed rooms for user {username}:</strong></div>", unsafe_allow_html=True)
                 for i, room_code in enumerate(completed_rooms, start=1):
-                    st.write(f"{i}. {room_code}")
+                    st.markdown(f"<p class='output'>{i}. {room_code}</p>", unsafe_allow_html=True)
             else:
                 st.warning("No completed rooms found or an error occurred.")
         except ValueError as e:
             st.error(f"Error: {e}")
     else:
         st.error("Please enter a valid TryHackMe profile URL.")
-
