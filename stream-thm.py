@@ -81,7 +81,6 @@ add_neumorphism_css()
 st.markdown("<div class='title'>TryHackMe Completed Rooms Checker</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Created by <a href='https://733nw0lf.github.io/' target='_blank'>Aswin Krishna</a></div>", unsafe_allow_html=True)
 st.markdown("<div class='neumorphic-box'><strong>guest@teenwolf:whoami</strong></div>", unsafe_allow_html=True)
-st.markdown("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=501162'></iframe>", unsafe_allow_html=True)
 
 profile_url = st.text_input("Enter your TryHackMe profile URL (e.g., https://tryhackme.com/r/p/username):")
 
@@ -102,5 +101,6 @@ if st.button("Fetch Completed Rooms"):
     else:
         st.error("Please enter a valid TryHackMe profile URL.")
 
+st.markdown("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=501162'></iframe>", unsafe_allow_html=True)
 
 
