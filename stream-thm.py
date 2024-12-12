@@ -2,9 +2,53 @@ import streamlit as st
 import requests
 import re
 
+
+def add_neumorphism_css():
+    st.markdown(
+        """
+        <style>
+        body {
+            background-color: #e0e5ec;
+            font-family: 'Courier New', monospace;
+        }
+        .stApp {
+            background-color: #e0e5ec;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px #babec4, -5px -5px 10px #ffffff;
+        }
+        .title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333333;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555555;
+        }
+        .neumorphic-box {
+            background: #e0e5ec;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px #babec4, -5px -5px 10px #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 8px #babec4, -3px -3px 8px #ffffff;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
 def extract_username(profile_url):
     """Extract username from TryHackMe profile URL."""
-    # Match the username pattern after /p/ in the URL
     match = re.search(r'tryhackme\.com/r/p/([^/\s]+)', profile_url)
     if match:
         return match.group(1)
@@ -32,9 +76,12 @@ def get_completed_rooms(username):
             break
     return completed_rooms
 
-# Streamlit App
-st.title("TryHackMe Completed Rooms Checker")
-st.write("Created by [Aswin Krishna](https://733nw0lf.github.io/)")
+add_neumorphism_css()
+
+st.markdown("<div class='title'>TryHackMe Completed Rooms Checker</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>Created by <a href='https://733nw0lf.github.io/' target='_blank'>Aswin Krishna</a></div>", unsafe_allow_html=True)
+st.markdown("<div class='neumorphic-box'><strong>guest@teenwolf:whoami</strong></div>", unsafe_allow_html=True)
+st.markdown("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=501162'></iframe>", unsafe_allow_html=True)
 
 profile_url = st.text_input("Enter your TryHackMe profile URL (e.g., https://tryhackme.com/r/p/username):")
 
@@ -45,7 +92,7 @@ if st.button("Fetch Completed Rooms"):
             completed_rooms = get_completed_rooms(username)
 
             if completed_rooms:
-                st.success(f"Completed rooms for user {username}:")
+                st.markdown(f"<div class='neumorphic-box'><strong>Completed rooms for user {username}:</strong></div>", unsafe_allow_html=True)
                 for i, room_code in enumerate(completed_rooms, start=1):
                     st.write(f"{i}. {room_code}")
             else:
@@ -54,3 +101,6 @@ if st.button("Fetch Completed Rooms"):
             st.error(f"Error: {e}")
     else:
         st.error("Please enter a valid TryHackMe profile URL.")
+
+
+
