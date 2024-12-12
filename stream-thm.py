@@ -15,8 +15,8 @@ def add_custom_css():
             background-color: #e0e5ec;
             padding: 20px;
             border-radius: 26px;
-            background: linear-gradient(225deg, #19d000, #15af00);
-            box-shadow: -5px 5px 4px #094e00, 5px -5px 4px #25ff00;
+           background: linear-gradient(145deg, #0074af, #008ad0);
+           box-shadow:  20px 20px 60px #006ea5,-20px -20px 60px #0094df;
         }
         .title {
             text-align: center;
