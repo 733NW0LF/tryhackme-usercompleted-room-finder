@@ -33,12 +33,12 @@ def add_neumorphism_css():
             box-shadow: 5px 5px 10px #babec4, -5px -5px 10px #ffffff;
             padding: 20px;
             margin-bottom: 20px;
+            text-align: center;
         }
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            margin-top: 20px;
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
             border-radius: 10px;
             box-shadow: 3px 3px 8px #babec4, -3px -3px 8px #ffffff;
         }
@@ -76,11 +76,18 @@ def get_completed_rooms(username):
             break
     return completed_rooms
 
+
 add_neumorphism_css()
 
 st.markdown("<div class='title'>TryHackMe Completed Rooms Checker</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Created by <a href='https://733nw0lf.github.io/' target='_blank'>Aswin Krishna</a></div>", unsafe_allow_html=True)
-st.markdown("<div class='neumorphic-box'><strong>guest@teenwolf:whoami</strong></div>", unsafe_allow_html=True)
+
+# guest@733nwolf:whoami and badge image
+st.markdown("<div class='neumorphic-box'><strong>guest@733nwolf:whoami</strong></div>", unsafe_allow_html=True)
+st.markdown(
+    "<div class='neumorphic-box'><img src='https://tryhackme-badges.s3.amazonaws.com/733nwolf.png' alt='Your Image Badge' /></div>",
+    unsafe_allow_html=True,
+)
 
 profile_url = st.text_input("Enter your TryHackMe profile URL (e.g., https://tryhackme.com/r/p/username):")
 
@@ -100,7 +107,3 @@ if st.button("Fetch Completed Rooms"):
             st.error(f"Error: {e}")
     else:
         st.error("Please enter a valid TryHackMe profile URL.")
-
-st.markdown("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=501162'></iframe>", unsafe_allow_html=True)
-
-
