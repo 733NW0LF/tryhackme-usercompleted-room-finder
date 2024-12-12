@@ -32,8 +32,8 @@ def add_custom_css():
         }
         .styled-box {
             border-radius: 26px;
-            background: linear-gradient(225deg, #19d000, #15af00);
-            box-shadow: -5px 5px 4px #094e00, 5px -5px 4px #25ff00;
+            background: linear-gradient(145deg, #33393b, #3d4346);
+            box-shadow:  10px 10px 7px #17191a,-10px -10px 7px #5b6568;
             padding: 20px;
             margin-bottom: 20px;
             text-align: center;
