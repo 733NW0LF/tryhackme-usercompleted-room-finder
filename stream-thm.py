@@ -34,6 +34,7 @@ def get_completed_rooms(username):
 
 # Streamlit App
 st.title("TryHackMe Completed Rooms Checker")
+st.write("Created by [Aswin Krishna](https://733nw0lf.github.io/)")
 
 profile_url = st.text_input("Enter your TryHackMe profile URL (e.g., https://tryhackme.com/r/p/username):")
 
